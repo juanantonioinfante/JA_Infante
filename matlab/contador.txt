@@ -1,0 +1,15 @@
+<center>
+<hr WIDTH="100%">
+<br><img 
+SRC="http://www.mat.ucm.es/cgi-bin/Count.cgi?dd=C|frgb=0000ff|md=8|df=infante.dat"
+height=32 width=130 align=ABSCENTER></center>
+
+<center><b><font face="Verdana, Arial, Helvetica, sans-serif"><font color="#000000"><font size=-1>
+Visitantes desde el 28 de Febrero de 2000</font></font></font></b></center>
+
+
+<p><i><font color="#990000">&Uacute;ltima actualizaci&oacute;n</font><font color="#333300">:
+28</font><font color="#003300"> de Febrero de 2000</font></i>
+<br>&nbsp;
+</body>
+</html>

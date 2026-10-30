@@ -1,0 +1,2449 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=UTF-8">
+    <meta name="Generator" content="Microsoft FrontPage 12.0">
+    <meta name="GENERATOR" content="Mozilla/4.51 [es] (Win98; U)
+      [Netscape]">
+    <meta name="Author" content="Juan-Antonio Infante y José María Rey">
+    <meta name="Description" content="Breve introducción al uso de
+      MATLAB">
+    <title>Introducción a MATLAB</title>
+    <style type="text/css">
+.auto-style2 {
+	font-family: "Courier New", Courier;
+	font-size: small;
+}
+</style>
+  </head>
+  <body vlink="#551A8B" text="#000000" link="#0000EE" bgcolor="#FFCC33"
+    alink="#0000EE">
+    &nbsp;
+    <center>
+      <table cols="1" width="50%" cellspacing="0" cellpadding="10"
+        border="0" bgcolor="#999999">
+        <tbody>
+          <tr bgcolor="#330033">
+            <td>
+              <center><font face="BernhardMod BT"><font color="#FF0000"><font
+                      size="+3">Introducción a MATLAB&nbsp;</font></font></font></center>
+            </td>
+          </tr>
+          <tr valign="CENTER" bgcolor="#99FF99" align="CENTER">
+            <td valign="CENTER" align="CENTER">
+              <center><font size="+1"><font color="#000099"><a
+                      href="http://www.mat.ucm.es/%7Einfante"
+                      target="_top">Juan-Antonio Infante</a></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                  <font color="#000099"><a
+                      href="http://www.mat.ucm.es/%7Ejrey" target="_top">José
+
+
+
+
+
+
+                      María Rey</a></font></font></center>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <br>
+    &nbsp; <br>
+    &nbsp;
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">En estas breves notas, desarrolladas por
+                <a href="http://www.mat.ucm.es/%7Einfante">Juan-Antonio
+                  Infante</a> y <a href="http://www.mat.ucm.es/%7Ejrey">José
+
+
+
+
+
+
+                  María Rey</a>, profesores del <a
+                  href="https://www.ucm.es/dpto-amma">Departamento de
+                  Análisis Matemático y Matemática Aplicada</a> de la <a
+                  href="http://www.ucm.es">Universidad Complutense de
+                  Madrid</a>, se pretende dar un primer paso en el
+                aprendizaje del uso de <font color="#993366">MATLAB</font><font
+                  color="#000000">.</font>&nbsp; En lo que sigue, se
+                supone que el usuario teclea lo que aparece en color <font
+                  color="#FF0000">rojo </font>(de hecho, lo óptimo
+                sería que el aprendiz de <font color="#993366">MATLAB</font>
+                reprodujera éstos y parecidos ejemplos por sí mismo) <font
+                  color="#000000">y precedido del símbolo </font><font
+                  color="#3366FF">&gt;&gt;</font><font color="#000000">,
+                  que&nbsp; hace el papel del <i>prompt</i> de la
+                  máquina. En color negro aparecerá la respuesta de </font><font
+                  color="#993366">MATLAB</font><font color="#000000"> a
+                  la instrucción tecleada. Los comentarios aparecerán en
+                  color </font><font color="#009900">verde</font><font
+                  color="#000000">.</font></font></td>
+          </tr>
+          <tr>
+            <td><font color="#000000"><font size="+1">Antes de comenzar,
+                  hagamos algunas consideraciones generales:</font></font>
+              <ul type="SQUARE">
+                <li> <font size="+1"><font color="#993366">MATLAB</font>
+                    distingue entre mayúsculas y minúsculas.</font></li>
+                <li> <font size="+1">La comilla ' es la que, en un
+                    teclado estándar, se encuentra en la tecla de la
+                    interrogación.</font></li>
+                <li> <font size="+1">Los comentarios deben ir
+                    precedidos por <font color="#009900">% </font>o,
+                    lo que es lo mismo, <font color="#993366">MATLAB</font>
+                    ignora todo lo que vaya precedido por el símbolo <font
+                      color="#009900">%</font><font color="#000000">.</font></font></li>
+                <li> <font size="+1"><font color="#000000">La ayuda de
+                    </font><font color="#993366">MATLAB</font><font
+                      color="#000000"> es bastante útil; para acceder a
+                      la misma basta teclear </font></font><font
+                    color="#000000"><font face="Courier New,Courier">help</font><font
+                      size="+1">. Es recomendable usarlo para obtener
+                      una información más precisa sobre la sintaxis y
+                      diversas posiblidades de uso de los comandos.</font></font></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <a name="indice"></a>
+    <table cols="1" width="100%" cellpadding="10" border="0">
+      <tbody>
+        <tr>
+          <td bgcolor="#FFFFCC"><font size="+1">A grandes rasgos, los
+              temas aquí introducidos son:</font>
+            <ul type="SQUARE">
+              <li> <font size="+1"><a href="#generalidades">Generalidades</a>.</font></li>
+              <li> <font size="+1"><a href="#matrices">Vectores y
+                    matrices</a>.</font></li>
+              <li> <font size="+1"><a href="#operaciones">Operaciones
+                    con vectores y matrices</a>.</font></li>
+              <li> <font size="+1"><a href="#logicas">Variables lógicas</a>.</font></li>
+              <li> <font size="+1"><a href="#polinomios">Polinomios</a>.</font></li>
+              <li><font size="+1"><a href="#funciones_matematicas">Funciones
+
+
+
+
+
+
+                    matemáticas</a>.</font></li>
+              <li> <font size="+1"><a href="#derivadas">Derivadas y
+                    primitivas</a>.</font></li>
+              <li> <font size="+1"><a href="#graficas">Gráficas de
+                    funciones</a>.</font></li>
+              <li> <font size="+1"><a href="#programacion">Programación
+                    con MATLAB</a>.</font></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a name="generalidades"></a>
+    <table cols="1" width="100%" cellpadding="10" border="0"
+      bgcolor="#FFFFCC">
+      <tbody>
+        <tr>
+          <td><font size="+1">&nbsp;&nbsp; Los cálculos que no se
+              asignan a una variable en concreto se asignan a la
+              variable de respuesta por defecto que es </font><font
+              face="Courier New,Courier">ans</font><font size="+1"> (del
+              inglés, <i>answer</i>):&nbsp;</font>
+            <p><font face="Courier New,Courier"><font size="-1"><font
+                    color="#3366FF">&gt;&gt;</font><font color="#FF0000">
+                    2+3</font></font></font> </p>
+            <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+              <br>
+              <font face="Courier New,Courier"><font size="-1">5</font></font>
+            </p>
+            <p><font size="+1">Sin embargo, si el cálculo se asigna a
+                una variable, el resultado queda guardado en ella:&nbsp;</font>
+            </p>
+            <p><font face="Courier New,Courier"><font size="-1"><font
+                    color="#3366FF">&gt;&gt;</font><font color="#FF0000">
+                    x=2+3</font></font></font> </p>
+            <p><font face="Courier New,Courier"><font size="-1">x =</font></font>
+              <br>
+              <font face="Courier New,Courier"><font size="-1">5</font></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td><font size="+1">&nbsp;&nbsp; Para conocer el valor de una
+              variable, basta teclear su nombre:&nbsp;</font>
+            <p><font face="Courier New,Courier"><font size="-1"><font
+                    color="#3366FF">&gt;&gt; </font><font
+                    color="#FF0000">x</font></font></font> </p>
+            <p><font face="Courier New,Courier"><font size="-1">x =</font></font>
+              <br>
+              <font face="Courier New,Courier"><font size="-1">5</font></font>
+            </p>
+            <p>&nbsp;<font size="+1">Si se añade un punto y coma (</font><font
+                face="Courier New,Courier">;</font><font size="+1">) al
+                final de la instrucción, la máquina no muestra la
+                respuesta...&nbsp;</font> </p>
+            <p><font face="Courier New,Courier"><font size="-1"><font
+                    color="#3366FF">&gt;&gt;</font><font color="#FF0000">
+                    y=5*4;</font></font></font> </p>
+            <p><font size="+1">... pero no por ello deja de realizarse
+                el cálculo.&nbsp;</font> </p>
+            <p><font face="Courier New,Courier"><font size="-1"><font
+                    color="#3366FF">&gt;&gt;</font><font color="#FF0000">
+                    y</font></font></font> </p>
+            <p><font face="Courier New,Courier"><font size="-1">y =</font></font>
+              <br>
+              <font face="Courier New,Courier"><font size="-1">20</font></font></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Las operaciones se evalúan
+                por orden de prioridad: primero las potencias, después
+                las multiplicaciones y divisiones y, finalmente, las
+                sumas y restas. Las operaciones de igual prioridad se
+                evalúan de izquierda a derecha:</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> 2/4*3</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1.5000</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> 2/(4*3)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0.1667</font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Se pueden utilizar las
+                funciones matemáticas habituales. Así, por ejemplo, la
+                función coseno,</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> cos(pi) &nbsp; </font><font
+                      color="#009900">% pi es una variable con valor
+                      predeterminado </font><font color="#000000">3.14159...</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">-1</font></font>
+              </p>
+              <p><font size="+1">o la función exponencial&nbsp;</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> exp(1)&nbsp;&nbsp;&nbsp;</font><font
+                      color="#009900"> % Función exponencial evaluada en
+                    </font><font color="#000000">1</font><font
+                      color="#009900">, es decir, el número</font><font
+                      color="#006600"> </font><font color="#000000">e</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">2.7183</font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Además de la variable </font><font
+                face="Courier New,Courier">pi</font><font size="+1"> , <font
+                  color="#993366">MATLAB</font> tiene otras variables
+                con valor predeterminado; éste se pierde si se les
+                asigna otro valor distinto. Por ejemplo:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">eps&nbsp;</font><font
+                      color="#009900">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %
+                      Épsilon de la máquina. Obsérvese que MATLAB
+                      trabaja en doble precisión</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">2.2204e-016</font></font>
+              </p>
+              <p><font size="+1">pero...&nbsp;</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> eps=7</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">eps =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">7</font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Otro ejemplo de función
+                matemática: la raíz cuadrada; como puede verse, trabajar
+                con complejos no da ningún tipo de problema. La unidad
+                imaginaria se representa en <font color="#993366">MATLAB</font>
+                como&nbsp; </font><font face="Courier New,Courier">i</font>
+              <font size="+1">o </font><font face="Courier New,Courier">j</font><font
+                size="+1">, variables con dicho valor como
+                predeterminado:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> sqrt(-4)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =<br>
+                    &nbsp;&nbsp; 0.0000 + 2.0000i</font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; El usuario puede controlar
+                el número de decimales con que aparece en pantalla el
+                valor de las variables, sin olvidar que ello no está
+                relacionado con la precisión con la que se hacen los
+                cálculos, sino con el aspecto con que éstos se
+                muestran:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">1/3</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0.3333</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> format long</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> 1/3</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0.33333333333333</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> format&nbsp;</font><font
+                      color="#009900">&nbsp;&nbsp;&nbsp;&nbsp; % Vuelve
+                      al formato estándar que es el de </font><font
+                      color="#000000">4</font><font color="#009900">
+                      cifras decimales</font></font></font> </p>
+              <p>&nbsp;</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Para conocer las variables
+                que se han usado hasta el momento:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> who</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">Your
+                    variables are:</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">ans eps
+                    x y</font></font> </p>
+              <p><font size="+1">o, si se quiere más información
+                  (obsérvese que todas las variables son <i>arrays</i>):&nbsp;</font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> whos</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">Name&nbsp;
+
+
+
+
+
+
+                    Size&nbsp; Bytes&nbsp;&nbsp;&nbsp;Class&nbsp;&nbsp;
+                    Attributes</font></font><br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;ans&nbsp;&nbsp;
+1x1&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    8&nbsp;&nbsp;&nbsp;&nbsp; double</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;eps&nbsp;&nbsp;
+1x1&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    8&nbsp;&nbsp;&nbsp;&nbsp; double</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    x&nbsp;&nbsp; 1x1&nbsp;&nbsp;&nbsp;
+                    8&nbsp;&nbsp;&nbsp;&nbsp; double</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    y&nbsp;&nbsp; 1x1&nbsp;&nbsp;&nbsp;
+                    8&nbsp;&nbsp;&nbsp;&nbsp; double</font></font> </p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Para deshacerse de una
+                variable</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> clear y&nbsp;</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">who</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">Your
+                    variables are:</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">ans eps
+                    x</font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center><a href="#indice"><img src="flecha.gif" alt="Volver al
+          índice general" width="40" hspace="5" height="48" border="0"
+          align="ABSMIDDLE"></a> <a href="#indice">Volver al índice
+        general</a><br>
+      <br>
+    </center>
+    <p><a name="matrices"></a> </p>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Para definir un vector
+                fila, basta introducir sus coordenadas entre
+                corchetes:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> v=[1 2 3]</font>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#009900">% Vector de </font><font
+                      color="#000000">3</font><font color="#009900">
+                      coordenadas</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">v=</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 2 3</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">w=[4 5 6];</font></font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; El operador <font
+                  face="Courier New,Courier">' </font>es el de
+                trasposición (en realidad trasposición y
+                conjugación):&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">w'</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">5</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">6</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Si queremos declarar un
+                vector de coordenadas equiespaciadas entre dos dadas,
+                por ejemplo, que la primera valga 0, la
+                última&nbsp;20&nbsp;y la distancia entre coordenadas sea
+                2, basta poner:</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">vect1=0:2:20</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">vect1
+                    =</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0 2 4 6
+                    8 10 12 14 16 18 20</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Equivalentemente, si lo que
+                conocemos del vector es que la primera coordenada vale
+                0, la última 20 y que tiene 11 en total,
+                escribiremos:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> vect2=linspace(0,20,11)</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">vect2
+                    =</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0 2 4 6
+                    8 10 12 14 16 18 20</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; A las coordenadas de un
+                vector se accede sin más que escribir el nombre del
+                vector y, entre paréntesis, su índice:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> vect2(3)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">ans =</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">4</font></font></font> </p>
+              <p><font size="+1">y se pueden extraer subvectores, por
+                  ejemplo:&nbsp;</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> vect2(2:5)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">ans=</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">2 4 6 8</font></font></font> </p>
+              <p><font color="#000000"><font size="+1">o,</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> vect1(:)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">ans=</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">0</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">2</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">4</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">6</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">8</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">10</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">12</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">14</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">16</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">18</font></font></font> <br>
+                <font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">20</font></font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td>&nbsp;&nbsp; <font size="+1">Las matrices se escriben
+                como los vectores, pero separando las filas mediante un
+                punto y coma; así una matriz 3x3:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> M=[1 2 3;4 5 6;7 8 9]</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">M =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 2 3</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4 5 6</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">7 8 9</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> M'&nbsp;&nbsp;&nbsp;</font><font
+                      color="#009900">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%
+
+
+
+
+
+
+                      Su traspuesta (su adjunta)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 4 7</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">2 5 8</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">3 6 9</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> mat=[v;w;0 0 1]</font>&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#009900">% También es una matriz </font><font
+                      color="#000000">3x3</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">mat =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 2 3</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4 5 6</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 1</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; A los elementos de una
+                matriz se accede sin más que escribir el nombre de la
+                matriz y, entre paréntesis, los respectivos
+                índices:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> mat(1,3)&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Elemento en la primera fila y
+                      tercera columna de la matriz </font><font
+                      color="#000000">mat</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">3</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; También se puede acceder a
+                un fila o columna completas,</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> mat(:,2)&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Segunda columna de </font><font
+                      color="#000000">mat</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">2</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">5</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> mat(2,:)&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Su segunda fila</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4 5 6</font></font>
+              </p>
+              <p><font size="+1">acceder a la matriz como si fuera una
+                  columna,&nbsp;</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">M(:)</font></font></font></p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">7</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">2</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">5</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">8</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">3</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">6</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">9</font></font>
+              </p>
+              <p><font size="+1">o acceder a cualquiera de sus
+                  submatrices&nbsp;</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">mat(2:3,[1 3])&nbsp;&nbsp;</font><font
+                      color="#009900">% Submatriz formada por los
+                      elementos que están en</font></font></font> <font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">"todas" las filas que <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                      % hay entre la segunda y la tercera y</font></font></font><font
+                  color="#009900"><font size="-1"><font face="Courier
+                      New,Courier"> </font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">en las columnas primera y tercera</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4 6</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 1</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Existen algunas matrices
+                definidas previamente; por ejemplo, la matriz
+                identidad,&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> eye(5)&nbsp;&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% eye se pronuncia en inglés como
+                      I</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 0 0 0
+                    0</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0 1 0 0
+                    0</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 1 0
+                    0</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 0 1
+                    0</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 0 0
+                    1</font></font> </p>
+              <p><font size="+1">la matriz nula,</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> zeros(3)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 0</font></font>
+              </p>
+              <p><font size="+1">o la matriz cuyos elementos valen todos
+                  1:</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> ones(4)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 1 1 1</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 1 1 1</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 1 1 1</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 1 1 1</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Se puede conocer el tamaño
+                de una matriz y la longitud de un vector:</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> size(mat) &nbsp; </font><font
+                      color="#009900">% Dimensiones de la matriz </font><font
+                      color="#000000">mat</font><font color="#009900">
+                      (número de filas y de columnas)</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">3 3</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">size(v)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 3</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> length(v)&nbsp;&nbsp; </font><font
+                      color="#009900">% Longitud del vector (número de
+                      coordenadas)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">3</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Existen comandos que
+                permiten crear de forma sencilla matrices. Por ejemplo:</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> diag(v)&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Matriz diagonal cuya diagonal es
+                      el vector </font><font color="#000000">v</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">ans =</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">1 0 0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 2 0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 3</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> diag(diag(M))&nbsp;&nbsp;</font><font
+                      color="#009900">% Matriz diagonal con la diagonal
+                      de </font><font color="#000000">M</font><font
+                      color="#009900">. La sentencia</font><font
+                      color="#000000"> diag(M)</font><font
+                      color="#009900"> da&nbsp;</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+%
+
+
+
+
+
+
+                      el vector formado por la diagonal de la matriz </font><font
+                      color="#000000">M</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font color="#000000"><font
+                      size="-1">ans =</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">1 0 0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 5 0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 9</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000">
+                      diag(ones(1,4),1)+diag(ones(1,4),-1) </font><font
+                      color="#009900">% Matriz tridiagonal </font><font
+                      color="#000000">5x5</font><font color="#009900">
+                      con </font><font color="#000000">0</font><font
+                      color="#009900"> en la diagonal</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+                      % principal y </font><font color="#000000">1</font><font
+                      color="#009900"> en la sub y superdiagonal</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 1 0 0
+                    0</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">1 0 1 0
+                    0</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0 1 0 1
+                    0</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 1 0
+                    1</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 0 1
+                    0</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">tril(M) &nbsp;&nbsp; </font><font
+                      color="#009900">% Matriz formada por la parte
+                      triangular inferior de </font><font
+                      color="#000000">M</font><font color="#009900">.</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 0 0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4 5 0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">7 8 9</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> triu(M)&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Matriz formada por la parte
+                      triangular superior de </font><font
+                      color="#000000">M</font><font color="#009900">.</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 2 3</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 5 6</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 9</font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center><a href="#indice"><img src="flecha.gif" alt="Volver al
+          índice general" width="40" hspace="5" height="48" border="0"
+          align="ABSMIDDLE"></a> <a href="#indice">Volver al índice
+        general</a><br>
+      <br>
+    </center>
+    <p><a name="operaciones"></a> </p>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td>&nbsp;&nbsp; <font size="+1">Las funciones matemáticas
+                elementales están definidas de forma que se pueden
+                aplicar sobre <i>arrays</i>. El resultado es el <i>array</i>
+                formado por la aplicación de la función a
+                cada&nbsp;elemento del <i>array</i>. Así:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> log(v)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0
+                    0.6931 1.0986</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">p=(0:0.1:1)*pi &nbsp;&nbsp; </font><font
+                      color="#009900">% Vector definido como el producto
+                      de un vector por un escalar</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">p =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">Columns
+                    1 through 7</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0
+                    0.3142 0.6283 0.9425 1.2566 1.5708 1.8850</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">Columns
+                    8 through 11</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">2.1991
+                    2.5133 2.8274 3.1416</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> x=sin(p)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">x =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">Columns
+                    1 through 7</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0
+                    0.3090 0.5878 0.8090 0.9511 1.0000 0.9511</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">Columns
+                    8 through 11</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">0.8090
+                    0.5878 0.3090 0.0000</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Las operaciones habituales
+                entre <i>arrays </i>(suma, resta y producto escalar de
+                vectores; suma, resta, producto y potencia de matrices)
+                se representan con los operadores habituales:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> v,w&nbsp;&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Recordamos los valores de </font><font
+                      color="#000000">v</font><font color="#009900"> y </font><font
+                      color="#000000">w</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">v =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 2 3</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">w =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4 5 6</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">z=v*w'&nbsp; </font><font
+                      color="#009900">% Producto escalar (producto de
+                      matrices </font><font color="#000000">1x3</font><font
+                      color="#009900"> por </font><font color="#000000">3x1</font><font
+                      color="#009900">)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">z =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">32</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">Z=w'*v&nbsp; </font><font
+                      color="#009900">% Producto de matrices </font><font
+                      color="#000000">3x1</font><font color="#009900">
+                      por </font><font color="#000000">1x3</font><font
+                      color="#009900"> = Matriz </font><font
+                      color="#000000">3x3</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">Z =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4 8 12</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">5 10 15</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">6 12 18</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> v*w&nbsp;&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Los vectores </font><font
+                      color="#000000">v</font><font color="#009900"> y </font><font
+                      color="#000000">w</font><font color="#009900"> no
+                      se pueden multiplicar</font></font></font> </p>
+              <p><span class="auto-style2">Error using *</span><br
+                  class="auto-style2">
+                <span class="auto-style2">Incorrect dimensions for
+                  matrix multiplication. Check that the</span><br
+                  class="auto-style2">
+                <span class="auto-style2">number of columns in the first
+                  matrix matches the number of rows in</span><br
+                  class="auto-style2">
+                <span class="auto-style2">the second matrix. To perform
+                  elementwise multiplication, use '.*'.<br>
+                  <u>Related documentation</u></span><font
+                  color="#330033"><span class="m_auto-style2"><u><br>
+                    </u></span></font></p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> mat&nbsp;&nbsp;&nbsp;&nbsp;</font><font
+                      color="#009900">% Recordamos el valor de la matriz
+                    </font><font color="#000000">mat</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">mat =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 2 3</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4 5 6</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">0 0 1</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> mat^2&nbsp;&nbsp;</font><font
+                      color="#009900">% Matriz </font><font
+                      color="#000000">mat </font><font color="#009900">elevada
+
+
+
+
+
+
+                      al cuadrado</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;9
+                    12 18</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">24 33
+                    48</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;0&nbsp;
+
+
+
+
+
+
+                    0&nbsp; 1</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; También pueden efectuarse
+                multiplicaciones, divisiones y potencias de <i>arrays</i>,
+                entendiéndolas como elemento a elemento (como, de hecho,
+                se realizan la suma y la resta). El operador utilizado
+                para ellas es el habitual precedido por un punto; es
+                decir:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> v.*w&nbsp;&nbsp;&nbsp;</font><font
+                      color="#009900">% Vector formado por los productos
+                      de las respectivas coordenadas:</font></font></font>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#000000">ans(i)=v(i)*w(i)</font></font></font><br>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4 10 18</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> w./v&nbsp;&nbsp;&nbsp;</font><font
+                      color="#009900">% Vector formado por el cociente
+                      de cada coordenada de </font><font
+                      color="#000000">w</font><font color="#009900">
+                      entre la&nbsp;</font></font></font> <br>
+                <font size="-1"><font face="Courier New,Courier"><font
+                      color="#009900">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                      % coordenada</font></font> <font face="Courier
+                    New,Courier"><font color="#009900">correspondiente
+                      de </font><font color="#000000">v</font><font
+                      color="#009900">: </font><font color="#000000">ans(i)=w(i)/v(i)</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">4.0000
+                    2.5000 2.0000</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> mat.^2&nbsp; </font><font
+                      color="#009900">% Matriz cuyos&nbsp; elementos son
+                      los de </font><font color="#000000">mat</font><font
+                      color="#009900"> elevados</font></font></font><font
+                  color="#009900"><font size="-1"><font face="Courier
+                      New,Courier"> </font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">al cuadrado: </font><font
+                      color="#000000">ans(i,j)=mat(i,j)^2</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;1&nbsp;
+
+
+
+
+
+
+                    4&nbsp; 9</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">16 25
+                    36</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;0&nbsp;
+
+
+
+
+
+
+                    0&nbsp; 1</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Finalmente, también se
+                pueden calcular determinantes:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> det(mat)&nbsp;</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">-3</font></font>
+              </p>
+              <p><font size="+1">y se pueden resolver sistemas de
+                  ecuaciones lineales con el versátil comando </font><font
+                  face="Courier New,Courier"><font color="#000000">\</font></font><font
+                  size="+1">:</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">mat\v'</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">2.6667</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">-5.3333</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">3.000</font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center><a href="#indice"><img src="flecha.gif" alt="Volver al
+          índice general" width="40" hspace="5" height="48" border="0"
+          align="ABSMIDDLE"></a> <a href="#indice">Volver al índice
+        general</a><br>
+      <br>
+    </center>
+    <p><a name="logicas"></a> </p>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td>&nbsp;&nbsp; <font size="+1">También existen variables
+                lógicas que toman los valores 0 (falso) o 1 (verdadero).
+                Por ejemplo:</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> abs(v)&gt;=2&nbsp;&nbsp;&nbsp;</font><font
+                      color="#009900">% Vector lógico cuyas coordenadas
+                      valen </font><font color="#000000">1</font><font
+                      color="#009900"> si la coordenada</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                      % correspondiente de </font><font color="#000000">v</font><font
+                      color="#009900"> es </font><font color="#000000">&gt;=
+
+
+
+
+
+
+                      2</font><font color="#009900"> y </font><font
+                      color="#000000">0</font><font color="#009900"> si
+                      no lo es</font></font></font> </p>
+              <p><span class="auto-style2">ans = </span> <br
+                  class="auto-style2">
+                <span class="auto-style2">1</span><span
+                  class="auto-style2"><span class="m_auto-style2">×</span>3
+                  <font color="#3333ff"><b><u>logical</u></b></font>
+                  array</span><br class="auto-style2">
+                <span class="auto-style2">0 1 1</span> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000">
+                      vector=v(abs(v)&gt;=2)&nbsp;&nbsp; </font><font
+                      color="#009900">% Vector formado por la
+                      coordenadas de </font><font color="#000000">v</font><font
+                      color="#009900"> que</font></font></font><font
+                  color="#009900"><font size="-1"><font face="Courier
+                      New,Courier"> </font></font></font><font
+                  face="Courier New,Courier"><font color="#009900"><font
+                      size="-1">verifican la desigualdad</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">vector
+                    =</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">2 3</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> v2=[3 2 1]</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">v2 =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">3 2 1</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> logica=v==v2&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Asignación de un valor lógico
+                      (el doble signo igual es el </font></font></font><font
+                  face="Courier New,Courier"><font color="#009900"><font
+                      size="-1">igual lógico)</font></font></font> </p>
+              <p><span class="auto-style2">logica =</span><br
+                  class="auto-style2">
+                <span class="auto-style2">1</span><span
+                  class="auto-style2"><span class="m_auto-style2">×</span>3
+                  <font color="#3333ff"><u><b>logical</b></u></font>
+                  array</span><br class="auto-style2">
+                <span class="auto-style2">0 1 0 </span> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> logic2=v~=v2&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Distinto (</font><font
+                      color="#000000">~</font><font color="#009900"> es
+                      el operador de negación)</font></font></font> </p>
+              <p><span class="auto-style2">logic2 =</span><br
+                  class="auto-style2">
+                <span class="auto-style2">1</span><span
+                  class="auto-style2"><span class="m_auto-style2">×</span>3
+                  <font color="#3333ff"><u><b>logical</b></u></font>
+                  array</span><br class="auto-style2">
+                <span class="auto-style2">1 0 1</span></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center><a href="#indice"><img src="flecha.gif" alt="Volver al
+          índice general" width="40" hspace="5" height="48" border="0"
+          align="ABSMIDDLE"></a> <a href="#indice">Volver al índice
+        general</a><br>
+      <br>
+    </center>
+    <p><a name="polinomios"></a> </p>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td>&nbsp;&nbsp; <font size="+1">Se puede trabajar con
+                polinomios: basta tener en cuenta que un polinomio no es
+                más que un vector. El orden de los coeficientes es de
+                mayor a menor grado, por ejemplo:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">p=[1 0 2 0
+                      3]&nbsp;&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Polinomio </font><font
+                      color="#000000">x^4+2*x^2+3</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">p =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1 0 2 0
+                    3</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> q=[2 1
+                      0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </font><font color="#009900">% Polinomio </font><font
+                      color="#000000">2*x^2+x</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">q =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">2 1 0</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp; <font size="+1"><font color="#993366">MATLAB
+
+
+
+
+
+
+                </font>tiene funciones específicas para polinomios
+                como:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> polyval(p,-1)&nbsp; </font><font
+                      color="#009900">% Evaluación del polinomio </font><font
+                      color="#000000">x^4+2x^2+3</font><font
+                      color="#009900"> en </font><font color="#000000">x=-1</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">6</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">pro=conv(p,q)&nbsp; </font><font
+                      color="#009900">% Producto de los polinomios </font><font
+                      color="#000000">p</font><font color="#009900"> y </font><font
+                      color="#000000">q</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">pro =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">2 1 4 2
+                    6 3 0</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> deconv(pro,p)&nbsp; </font><font
+                      color="#009900">% Cociente entre </font><font
+                      color="#000000">pro</font><font color="#009900"> y
+                    </font><font color="#000000">p</font><font
+                      color="#009900">; obviamente el resultado es</font><font
+                      color="#000000"> q</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">2 1 0</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">roots(pro)&nbsp;&nbsp;&nbsp;&nbsp;
+                    </font><font color="#009900">% Raíces del polinomio
+                    </font><font color="#000000">pro</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =<br>
+                    &nbsp;&nbsp; 0.0000 + 0.0000i<br>
+                    &nbsp;&nbsp; 0.6050 + 1.1688i<br>
+                    &nbsp;&nbsp; 0.6050 - 1.1688i<br>
+                    &nbsp; -0.6050 + 1.1688i<br>
+                    &nbsp; -0.6050 - 1.1688i<br>
+                    &nbsp; -0.5000 + 0.0000i</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> poly([i -i 1/2 pi])&nbsp; </font><font
+                      color="#009900">% Polinomio mónico que tiene por
+                      raíces a los </font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">números </font><font
+                      color="#000000">i</font><font color="#009900">,</font><font
+                      color="#000000"> -i</font><font color="#009900">,</font><font
+                      color="#000000"> 0.5</font><font color="#009900">
+                      y </font><font color="#000000">pi</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">1.0000
+                    -3.6416 2.5708 -3.6416 1.5708</font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center><a href="#indice"><img src="flecha.gif" alt="Volver al
+          índice general" width="40" hspace="5" height="48" border="0"
+          align="ABSMIDDLE"></a> <a href="#indice">Volver al índice
+        general</a><br>
+      <br>
+    </center>
+    <p><a name="funciones_matematicas"></a> </p>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; La manera más versátil de
+                trabajar con funciones matemáticas es usar las llamadas
+                funciones<i> anónimas</i>. Se escriben las variables de
+                la función entre paréntesis tras el símbolo @, seguidas
+                de la expresión de la función. Por ejemplo:</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> f=@(x) exp(-x.^2)
+                      &nbsp;&nbsp;&nbsp; </font><font color="#009900">%
+                      Se puede poner cualquier letra como variable.
+                      Mejor usar notación vectorial.</font></font></font><br>
+              </p>
+              <p><span class="auto-style2">f = </span> <br
+                  class="auto-style2">
+                <span class="auto-style2"><font color="#3333ff"><u><b>function_handle</b></u></font>
+                  with value:</span><br class="auto-style2">
+                <span class="auto-style2">@(x)exp(-x.^2) </span> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;<font color="#FF0000">
+                        g=@(x,y) sin(x.*y) &nbsp;&nbsp;</font></font><font
+                      color="#FF0000"> </font><font color="#009900">%
+                      Se pueden usar varias variables</font></font></font>&nbsp;
+
+
+
+
+
+
+                <br>
+              </p>
+              <p><font size="-1" face="Courier New,Courier">g =<br>
+                  <font color="#3333ff"><u><b>function_handle</b></u></font>
+                  with value:<br>
+                  @(x,y)sin(x.*y)</font></p>
+              <p><font size="+1">Se evalúan en vectores (o escalares) de
+                  la forma más natural:</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> f(0)</font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 1</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">f(v) &nbsp;&nbsp;</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =<br>
+                    &nbsp;&nbsp;&nbsp; 0.3679&nbsp;&nbsp;&nbsp;
+                    0.0183&nbsp;&nbsp;&nbsp; 0.0001</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;<font color="#FF0000">
+                        z=g(v,w)</font></font></font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">z =<br>
+                    &nbsp;&nbsp; -0.7568&nbsp;&nbsp; -0.5440&nbsp;&nbsp;
+                    -0.7510</font></font></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center><a href="#indice"><img src="flecha.gif" alt="Volver al
+          índice general" width="40" hspace="5" height="48" border="0"
+          align="ABSMIDDLE"></a> <a href="#indice">Volver al índice
+        general</a><br>
+      <br>
+    </center>
+    <p> </p>
+    <p><a name="derivadas"></a> </p>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Mediante el módulo (<i>toolbox</i>)
+                de matemática simbólica se pueden calcular
+                derivadas,&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> f=@(x) sin(x)</font></font></font>
+              </p>
+              <p><span class="auto-style2">f =</span><br
+                  class="auto-style2">
+                <span class="auto-style2"><font color="#3333ff"><u><b>function_handle</b></u></font>
+                  with value:</span><br class="auto-style2">
+                <span class="auto-style2">@(x)sin(x) </span> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> g=diff(sym(f)) &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp;&nbsp; </font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">%&nbsp;</font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900"><font face="Courier New,Courier"><font
+                          size="-1"><font color="#009900"><font
+                              color="#330033">g </font>es un objeto
+                            simbólico</font></font></font></font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">g =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">cos(x)</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000">
+                      diff(sym(f),2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    </font><font color="#009900">% Derivada segunda de </font>f</font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">-sin(x)</font></font>
+              </p>
+              <p><font size="+1">o encontrar primitivas.</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> h=int(sym(@(x)
+                      log(x)))&nbsp;&nbsp; </font><font color="#009900">%
+                      Primitiva de la función logaritmo (<font
+                        color="#330033">h</font> es simbólica)</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">h = <br>
+                    x*(log(x) - 1)</font></font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000">
+                      diff(h)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    </font><font color="#009900">% Comprobación</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1">ans =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">log(x)<br>
+                  </font></font></p>
+              <p><font size="+1">&nbsp;&nbsp; Finalmente, una expresión
+                  simbólica se puede convertir en una función anónima:<br>
+                </font><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF"><br>
+                      &gt;&gt;</font><font color="#FF0000">
+                      fun=matlabFunction(g)</font></font></font> </p>
+              <p><span class="auto-style2">fun =</span><br
+                  class="auto-style2">
+                <span class="auto-style2"><font color="#3333ff"><u><b>function_handle</b></u></font>
+                  with value:</span><br class="auto-style2">
+                <span class="auto-style2">@(x)cos(x)</span><br>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center><a href="#indice"><img src="flecha.gif" alt="Volver al
+          índice general" width="40" hspace="5" height="48" border="0"
+          align="ABSMIDDLE"></a> <a href="#indice">Volver al índice
+        general</a><br>
+      <br>
+    </center>
+    <p> </p>
+    <p><a name="graficas"></a> </p>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1"><font color="#993366">&nbsp;&nbsp;
+                  MATLAB</font> tiene un gran potencial de herramientas
+                gráficas. Se pueden dibujar los valores de un vector
+                frente a otro (de la misma longitud):&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> x=pi*(-1:0.1:1);</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> y=x.*sin(x);</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">plot(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    </font><font color="#009900">% Por defecto une los
+                      puntos </font><font color="#000000">(x(i),y(i))</font><font
+                      color="#009900"> mediante una poligonal&nbsp;</font></font></font>
+                <br>
+                &nbsp; <br>
+                &nbsp; <br>
+              </p>
+              <center>
+                <p><img src="webfig1.png" alt="Gráfica de la función"
+                    width="576" height="432"></p>
+              </center>
+              <p> <br>
+              </p>
+              <p><font size="+1">Como se ve, con pocos puntos la gráfica
+                  tiene un aspecto demasiado lineal a trozos. Para
+                  "engañar" al ojo, basta tomar más puntos.&nbsp;</font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> x=pi*(-1:0.01:1);</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">y=x.*sin(x);</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">plot(x,y)</font></font></font> <br>
+                &nbsp; <br>
+              </p>
+              <center>
+                <p><img src="webfig2.png" alt="Gráfica de la función"
+                    width="576" height="432"></p>
+              </center>
+              &nbsp;</td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; También pueden dibujarse
+                funciones. Así:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> fplot(f,[0
+                      2*pi])&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Dibuja la función anónima </font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900"><font face="Courier New,Courier"><font
+                          size="-1"><font color="#000000">sin(x)</font></font></font>
+                      (definida antes) en el intervalo </font><font
+                      color="#000000">[0,2*pi]</font></font></font> <br>
+                &nbsp; <br>
+              </p>
+              <center>
+                <p><img src="webfig3.png" alt="Gráfica de la función"
+                    width="576" height="432"></p>
+              </center>
+              <p> <br>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">hold
+                      on&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </font><font color="#009900">% Mantiene en la
+                      ventana gráfica los dibujos anteriores</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> fplot(g,[0 2*pi])&nbsp; </font><font
+                      color="#009900">% Dibuja, sobre la gráfica
+                      anterior, la función simbólica </font><font
+                      color="#000000">cos(x) </font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">definida anteriormente<br>
+                    </font></font></font></p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000">
+                      legend('f(x)=sin(x)','g(x)=cos(x)')&nbsp; </font><font
+                      color="#009900">% Permite etiquetar cada una de
+                      las funciones dibujadas.</font></font></font> <br>
+                &nbsp; <br>
+              </p>
+              <center>
+                <p><img src="webfig4.png" alt="Gráficas de las
+                    funciones" width="576" height="432"></p>
+              </center>
+              <p> <br>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> hold off</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#009900">% Con esto olvida los dibujos
+                      anteriores </font></font></font><font
+                  face="Courier New,Courier"><font color="#009900"><font
+                      size="-1">y dibuja en una ventana nueva</font></font></font>
+              </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> fplot(@(x) x.^2.*sin(1./x),[-0.05
+                      0.05])&nbsp; </font><font color="#009900">%
+                      Dibuja la función </font><font color="#000000">x^2*sin(1/x)</font></font></font>
+                <br>
+                &nbsp; <br>
+              </p>
+              <center>
+                <p><img src="webfig5.png" alt="Gráfica de la función"
+                    width="576" height="432"></p>
+              </center>
+              &nbsp;
+              <p><font size="+1">También puede usarse el versátil
+                  comando </font> <font face="Courier New">ezplot</font><font
+                  size="+1">&nbsp;(<i>easy-to-use plot</i>) que permite
+                  dibujar funciones definidas mediante cadenas de
+                  caracteres,</font></p>
+              <p><font size="-1" face="Courier New,Courier"><font
+                    color="#3366FF">&gt;&gt;</font><font color="#FF0000">
+                    ezplot('exp(x)')&nbsp;&nbsp;&nbsp; </font><font
+                    color="#009900"> % Dibuja la función exponencial en
+                    un intervalo adecuado a la función</font></font><br>
+                &nbsp; <br>
+              </p>
+              <center>
+                <p><img src="webfig6.png" alt="Gráfica de la función"
+                    width="560" height="420"></p>
+              </center>
+              <p>&nbsp;</p>
+              <p><font size="+1">curvas en paramétricas,&nbsp;</font> </p>
+              <p><font size="-1" face="Courier New,Courier"><font
+                    color="#3366FF">&gt;&gt;</font><font color="#FF0000">
+                    ezplot('sin(t)','cos(t)',[0 pi])&nbsp;&nbsp;&nbsp; </font></font>&nbsp;
+
+
+
+
+
+                <br>
+                &nbsp; <br>
+              </p>
+              <center>
+                <p><img src="webfig7.png" alt="Gráfica de la función"
+                    width="560" height="420"></p>
+              </center>
+              <p align="left"><font size="+1">e implícitas</font></p>
+              <p align="left"><font size="-1" face="Courier New,Courier"><font
+                    color="#3366FF">&gt;&gt;</font><font color="#FF0000">
+                    ezplot('x^2-y^2-1')&nbsp;&nbsp;&nbsp; </font></font><br>
+                &nbsp; <br>
+              </p>
+              <center>
+                <center>
+                  <p><img src="webfig8.png" alt="Gráfica de la función"
+                      width="560" height="420"></p>
+                </center>
+              </center>
+              <p>&nbsp;</p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Se pueden dibujar curvas en
+                el espacio</font><font face="Courier New">,</font><br>
+              <p> <font size="-1" face="Courier New,Courier"><font
+                    color="#3366FF">&gt;&gt;</font></font><font
+                  size="-1" color="#FF0000" face="Courier New,Courier">
+                  t=0:0.01:6*pi;&nbsp;&nbsp;&nbsp;&nbsp; </font><font
+                  size="-1" face="Courier New,Courier"><font
+                    color="#009900">% Valores del parámetro<br>
+                  </font></font></p>
+              <p> <font size="-1" face="Courier New,Courier"><font
+                    color="#3366FF">&gt;&gt;</font></font><font
+                  size="-1" color="#FF0000" face="Courier New,Courier">
+                  plot3(sin(t),cos(t),t)<br>
+                </font></p>
+              <center>
+                <center>
+                  <p><img src="webfig9.png" alt="Gráfica de la función"
+                      width="560" height="420"></p>
+                </center>
+              </center>
+              <font face="Courier New"><br>
+                <br>
+              </font><font size="+1">&nbsp;&nbsp; También permite
+                dibujar superficies. La forma más sencilla es mediante
+                el comando </font><font face="Courier New">ezsurf,</font><br>
+              <p> <font size="-1" face="Courier New,Courier"><font
+                    color="#3366FF">&gt;&gt;</font></font><font
+                  size="-1" color="#FF0000" face="Courier New,Courier">
+                  ezsurf('sin(x*y)',[-2 2 -2 2])</font></p>
+              <p> &nbsp;</p>
+              <p align="center"> <img src="webfig10.png" alt="Gráfica
+                  de la función" width="560" height="420"></p>
+              <p align="center"> &nbsp;</p>
+              <p><font size="+1">aunque se pueden realizar gráficas más
+                  sofisticadas:</font></p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt; </font><font
+                      color="#FF0000">t=0:0.001:0.009;</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> v=900:1025;</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> [T V]=meshgrid(t,v);</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000">
+                      aux1=16*pi^2*(T.^2).*((V-918).^2).*((V-1011).^2);</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> aux2=aux1+(2*V-1929).^2;</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> w=T./aux2;</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> z=35000000*w;</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> surfl(t,v,z)&nbsp;
+                      &nbsp;&nbsp;&nbsp; </font><font color="#009900">%
+                      Dibuja la superficie creada mediante las </font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">órdenes </font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">anteriores.</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> shading interp&nbsp; &nbsp; </font><font
+                      color="#009900">% Este comando y el siguiente
+                      sirven para modificar </font></font></font><font
+                  face="Courier New,Courier"><font size="-1"><font
+                      color="#009900">el dibujo obtenido.</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> colormap(pink) &nbsp; </font><font
+                      color="#009900">&nbsp;&nbsp;</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> rotate3d&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font
+                      color="#009900">% Sirve para girar la figura
+                      mediante el ratón.</font></font></font> <br>
+                &nbsp; <br>
+                &nbsp; <br>
+              </p>
+              <center>
+                <p><img src="webfig11.png" alt="Gráfica de la función"
+                    width="576" height="432"> <br>
+                  &nbsp;</p>
+              </center>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center><a href="#indice"><img src="flecha.gif" alt="Volver al
+          índice general" width="40" hspace="5" height="48" border="0"
+          align="ABSMIDDLE"></a> <a href="#indice">Volver al índice
+        general</a><br>
+      <br>
+    </center>
+    <p><a name="programacion"></a> </p>
+    <center>
+      <table cols="1" width="100%" cellpadding="10" border="0"
+        bgcolor="#FFFFCC">
+        <tbody>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Para escribir un programa
+                con <font color="#993366">MATLAB </font>habrá que
+                crear un fichero que tenga extensión </font><font
+                face="Courier New,Courier">.m</font><font size="+1"> y
+                contenga las instrucciones. Esto se puede hacer con
+                cualquier editor de textos, pero tiene algunas ventajas
+                usar el editor propio de <font color="#993366">MATLAB</font></font>.&nbsp;
+
+
+
+
+
+
+              <p><font size="+1"><font color="#993366">&nbsp;&nbsp;
+                    MATLAB </font>trabaja con memoria dinámica, por lo
+                  que no es necesario declarar las variables que se van
+                  a usar. Por esta misma razón, habrá que tener especial
+                  cuidado y cerciorarse de que entre las variables del
+                  espacio de trabajo no hay ninguna que se llame igual
+                  que las de nuestro programa (proveniente, por ejemplo,
+                  de un programa previamente ejecutado en la misma
+                  sesión), porque esto podría provocar conflictos. A
+                  menudo, es conveniente reservar memoria para las
+                  variables (por ejemplo, si se van a utilizar matrices
+                  muy grandes); para ello, basta con asignarles
+                  cualquier valor. Del mismo modo, si se está usando
+                  mucha memoria, puede ser conveniente liberar parte de
+                  ella borrando (</font><font face="Courier New,Courier">clear</font><font
+                  size="+1">) variables que no se vayan a usar
+                  más.&nbsp;</font> </p>
+              <p><font size="+1">&nbsp;&nbsp; Un programa escrito
+                  en&nbsp;<font color="#000000"> </font><font
+                    color="#993366">MATLAB </font>admite la mayoría de
+                  las estructuras de programación al uso y su sintaxis
+                  es bastante estándar. En los siguientes ejemplos se
+                  muestra la sintaxis de algunas de estas estructuras (</font><font
+                  face="Courier New,Courier">if</font><font size="+1">,
+                </font><font face="Courier New,Courier">for</font><font
+                  size="+1">, </font><font face="Courier New,Courier">while</font><font
+                  size="+1">,...).&nbsp;</font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1"><b><font color="#000000">Ejemplo 1: </font></b>Calcular
+la
+
+
+
+
+
+
+                suma de los n primeros términos de la sucesión 1, 2x,
+                3x^2, 4x^3, ...&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    n=input(<font color="#CC0000">'¿Cuántos términos
+                      quieres sumar?&nbsp; '</font>);</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    x=input(<font color="#CC0000">'Dame el valor del
+                      numero x&nbsp; '</font>);</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    suma=1;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;<font
+                      color="#3333FF"> for</font> i=2:n</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    suma=suma+i*x^(i-1);</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">end</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    disp(<font color="#CC0000">'El valor pedido es'</font>)</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    disp(suma)</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1"><b>Ejemplo 2: </b>Decidir si un número
+                natural es primo.&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    n=input(<font color="#CC0000">'Número natural que
+                      deseas saber si es primo '</font>);</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    i=2;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    primo=1;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">while </font>i&lt;=sqrt(n)</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">if</font>
+                    rem(n,i)==0&nbsp;&nbsp; <font color="#006600">%
+                      Resto de dividir n entre i</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    primo=0;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">break</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                      color="#3333FF"> end</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    i=i+1;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">end</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">if </font>primo</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    disp(<font color="#CC0000">'El número dado es
+                      primo.'</font>)</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">else</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    disp(<font color="#CC0000">'El número dado no es
+                      primo.'</font>)</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    disp(<font color="#CC0000">'De hecho, es divisible
+                      por:'</font>)</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    disp(i)</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">end</font></font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1"><b>Ejemplo 3: </b>Escribir un número
+                natural en una base dada (menor que diez).&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    n=input(<font color="#CC0000">'Dame el número que
+                      quieres cambiar de base '</font>);</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    base=input(<font color="#CC0000">'¿En qué base
+                      quieres expresarlo? '</font>);</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    i=1;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">while </font>n&gt;0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    c(i)=rem(n,base);</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+n=fix(n/base);&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#006600">% Parte entera de n/base</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    i=i+1;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">end</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    disp(<font color="#CC0000">'La expresión en la base
+                      dada es:'</font>)</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    i=i-1;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    disp(c(i:-1:1))</font></font></p>
+            </td>
+          </tr>
+          <tr>
+            <td><font size="+1">&nbsp;&nbsp; Por último, también pueden
+                programarse funciones. La primera instrucción de un
+                fichero que contenga una función de nombre </font><font
+                face="Courier New,Courier">fun</font><font size="+1">
+                debe ser:&nbsp;</font>
+              <p><font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">function</font> [argumentos de
+                    salida]=fun(argumentos de entrada)</font></font> </p>
+              <p><font size="+1">Es conveniente que el fichero que
+                  contenga la función se llame como ella; así, la
+                  función anterior debería guardarse en el fichero </font><font
+                  face="Courier New,Courier">fun.m</font><font size="+1">;
+                  por ejemplo, si se desea programar una función que
+                  calcule, mediante el algoritmo de Euclides, el máximo
+                  común divisor de dos números naturales, basta escribir
+                  un fichero </font><font face="Courier New,Courier">euclides.m</font><font
+                  size="+1"> cuyo contenido sea:&nbsp;</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">function </font>m=euclides(a,b)</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#006600">% Cálculo del máximo común
+                      divisor de dos números naturales </font></font></font><font
+                  face="Courier New,Courier"><font color="#006600"><font
+                      size="-1">mediante el algoritmo de Euclides</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;<font
+                      color="#3333FF"> if</font> a&lt;b</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    c=b;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    b=a;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    a=c;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">end</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3333FF">&nbsp;&nbsp; while</font> b&gt;0</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    c=rem(a,b);</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    a=b;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                    b=c;</font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    <font color="#3333FF">end</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">&nbsp;&nbsp;
+
+
+
+
+
+
+                    m=a;</font></font> </p>
+              <p><font size="+1">Si, una vez escrito el fichero
+                  anterior, en el espacio de trabajo o en un programa se
+                  escribe la instrucción&nbsp;</font> </p>
+              <p><font face="Courier New,Courier"><font color="#FF0000"><font
+                      size="-1">mcd=euclides(33,121)</font></font></font>
+              </p>
+              <p><font size="+1">en la variable&nbsp;</font> <font
+                  face="Courier New,Courier">mcd</font><font size="+1">
+                  se almacenará el valor 11.&nbsp;</font> </p>
+              <p><font size="+1">&nbsp;&nbsp; Las variables de una
+                  función son siempre locales.&nbsp; Por tanto, aunque
+                  en el seno de la función se modifiquen los argumentos
+                  de entrada, el valor de las variables correspondientes
+                  queda inalterado. Por ejemplo, en la función </font><font
+                  face="Courier New,Courier">euclides.m</font><font
+                  size="+1"> se modifica el valor de los argumentos de
+                  entrada, pero, sin embargo:&nbsp;</font> </p>
+              <p><font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> x=15;</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> mcd=euclides(x,3);</font></font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1"><font
+                      color="#3366FF">&gt;&gt;</font><font
+                      color="#FF0000"> x</font></font></font> <br>
+                <font face="Courier New,Courier"><font size="-1">x =</font></font>
+                <br>
+                <font face="Courier New,Courier"><font size="-1">15</font></font>
+              </p>
+              <p><font size="+1">&nbsp;&nbsp; Si se pretende que las
+                  modificaciones de un argumento de entrada afecten a la
+                  variable correspondiente, deberá situarse dicho
+                  argumento, además, en la lista de argumentos de
+                  salida.</font> <br>
+                &nbsp;</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <center><font size="+1"><a href="pract/pract.htm">Más
+                    ejemplos</a> de programación con <font
+                    color="#993366">MATLAB</font><font color="#000000">.</font></font></center>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <center>
+      <p><a href="#indice"><img src="flecha.gif" alt="Volver al índice
+            general" width="40" hspace="5" height="48" border="0"
+            align="ABSMIDDLE"></a> <a href="#indice">Volver al índice
+          general</a></p>
+    </center>
+  </body>
+</html>
